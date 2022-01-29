@@ -41,7 +41,8 @@ def create_dataloader(batch_size=32):
     sampler = torch.utils.data.sampler.WeightedRandomSampler(train_classes_weights, len(train_classes_weights))
 
     # Creating data loader for train, val and test sets
-    train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sampler=sampler, num_workers=2)
+    #train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sampler=sampler, num_workers=2)
+    train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True, num_workers=2)
     val_loader = torch.utils.data.DataLoader(val_data, batch_size=batch_size, shuffle=False, num_workers=2)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=False, num_workers=2)
     

@@ -19,8 +19,9 @@ utils.set_seeds(0)
 dataloaders = classification_dataloader.create_dataloader(batch_size=80)
 #utils.visualize_dataloader_classificaton(dataloaders["train"], exp_name)
 
-model = classification_networks.resnet50(in_channels=1, out_features=1, pretrained=True)
-model = custom_networks.AleemNet(in_channels=1, out_features=1)
+#model = classification_networks.resnet18(in_channels=1, out_features=1, pretrained=True)
+model = custom_networks.aleemnet(in_channels=1, out_features=1)
+
 criterion = torch.nn.BCELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 

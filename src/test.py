@@ -30,4 +30,4 @@ def test(dataloader, model, criterion, exp_name, wandb=None):
     epoch_loss = batch_loss / len(dataloader.dataset)
     epoch_acc = batch_acc / len(dataloader.dataset)
 
-    utils.log("Test Loss: {:.3f} Acc: {:.3f}.".format(epoch_loss, epoch_acc))
+    utils.log("Test Loss: {:.3f} Acc: {:.3f}. ".format(epoch_loss, epoch_acc))

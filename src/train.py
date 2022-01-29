@@ -65,7 +65,7 @@ def train(dataloaders, model, optimizer, criterion, exp_name, wandb=None):
             #     best_model_weights = copy.deepcopy(model.state_dict())
             #     utils.log(" saving model.")
 
-        print()
+        utils.log("\nOn complete:")
         test(dataloaders["train"], model, criterion, exp_name)
         test(dataloaders["val"], model, criterion, exp_name)
 

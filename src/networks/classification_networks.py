@@ -16,6 +16,12 @@ def mobilenet_v2(in_channels, out_features, pretrained):
     return _cuda_enabled(model)
 
 # ResNets
+def resnet18(in_channels, out_features, pretrained):
+    model = torchvision.models.resnet18(pretrained=pretrained)
+    model.conv1 = nn.Conv2d(in_channels, 64, kernel_size=7, stride=2, padding=3, bias=False)
+    model.fc = nn.Linear(model.fc.in_features, out_features)
+    return _cuda_enabled(model)
+
 def resnet50(in_channels, out_features, pretrained):
     model = torchvision.models.resnet50(pretrained=pretrained)
     model.conv1 = nn.Conv2d(in_channels, 64, kernel_size=7, stride=2, padding=3, bias=False)

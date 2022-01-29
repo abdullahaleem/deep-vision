@@ -1,13 +1,14 @@
-PROJECT_NAME=test
+PROJECT_NAME=deep-vision
 
 # Build docker file
 #docker build -t abdullahaleem/projects:$PROJECT_NAME .
 
 # Run with GPU
 # sudo docker run --rm --gpus '"device=1,3"' --shm-size=1gb -v ~+/src:/home/src -v /home/darvin/NAS/Projects/Ptosis:/home/data/ -it abdullahaleem/projects:ptosis
+docker run --rm --gpus '"device=0"' -v ~+/:/home/ -it abdullahaleem/projects:$PROJECT_NAME
 
 # Run without GPU
-docker run --rm -v ~+/:/home/ -it abdullahaleem/projects:$PROJECT_NAME
+#docker run --rm -v ~+/:/home/ -it abdullahaleem/projects:$PROJECT_NAME
 
 
 # Deploy docker file
